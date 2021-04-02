@@ -1,0 +1,68 @@
+<!DOCTYPE HTML>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <title> 
+        {% block title %} 
+           Aprendiendo Flask 
+        {% endblock %} 
+    </title>
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'css/styles.css') }}" /> <!--Esto es para cargar la hoja de estilo .css-->
+
+</head>
+<body>
+    <!--   <h1>Aprendiendo Pyhton con Flask</h1> -->
+    <!-- Cabecera de la página -->
+    <header>
+        <div id="logotipo">
+            <img src="{{ url_for('static', filename='img/logo.png') }}" />
+            <h1>Proyecto con Flask</h1>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li>
+                <a href="{{ url_for('index')}}"> Inicio </a>
+            </li>
+            <li>
+                <a href="{{ url_for('crear_coche')}}"> Crear Coche </a>
+            </li>
+            <li>
+                <a href="{{ url_for('coches')}}"> Listado de Coches </a>
+            </li>
+            <li>
+                <a href="{{ url_for('informacion')}}"> Informacion</a>
+            </li>
+            <li>
+                <a href="{{ url_for('contacto')}}"> Contacto</a>
+            </li>
+            <li>
+                <a href="{{ url_for('lenguajes')}}"> Lenguajes de Programacion</a>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="barra">
+        <span class="esquina-izquierda"></span>
+        <span class="relleno-barra"></span>
+        <span class="esquina-derecha"></span>
+    </div>
+
+    <div id="content">
+        <div class="box">
+        <!-- <h2 class="title"> Quitar </h2>-->
+            {% block content %}
+
+            {% endblock %}
+        </div>           
+    </div>
+
+    <footer>
+        Master en python con Flask &copy; Cecilia Reyes - {{now.month}}/{{now.year}}
+    </footer>
+
+</body>
+
+</html>
